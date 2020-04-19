@@ -47,3 +47,11 @@
 	margin-right: .8em;
 	border-radius: 4px 0 0 4px;
 }
+
+.heroes a {
+	text-decoration: none;
+	color: #333;
+	position: relative;
+	display: block;
+	width: 250px;
+}
