@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Inject} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
@@ -44,11 +43,15 @@ export class HeroDetailComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AvatarDialogComponent, {
-      width: '250px',
+      width: '500px', height: '300px',
+      data: {picUrl: this.hero.avatar}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      if (result) {
+        this.hero.avatar = result;
+      }
     });
   }
 

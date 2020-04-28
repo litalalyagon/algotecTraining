@@ -1,13 +1,11 @@
-<p>dialog works!</p>
-
-<!--<div mat-dialog-content>-->
-<!--	<ul class="heroes">-->
-<!--		<li *ngFor="let url of picsUrl">-->
-<!--				<img mat-card-image src="{{url}}">-->
-<!--		</li>-->
-<!--	</ul>-->
-<!--</div>-->
+<div mat-dialog-content>
+	<ul class="heroes">
+		<li *ngFor="let pic of avatarPics">
+			<img [mat-dialog-close]="pic.url" class="avatar-choice-image" mat-card-image src={{pic.url}}>
+		</li>
+	</ul>
+</div>
 <div mat-dialog-actions>
-	<button mat-button (click)="onNoClick()">Cancel</button>
-	<button mat-button cdkFocusInitial>Ok</button>
+	<button (click)="clickCancel()">Cancel</button>
+	<button [mat-dialog-close]="avatarPlaceholder">Remove picture</button>
 </div>
