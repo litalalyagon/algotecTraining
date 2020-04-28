@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
 // import { HEROES } from './mock-heroes-unused';
-import { MessageService } from "./message.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class HeroService {
   ) { }
 
   getHeroes(): Observable<Hero[]> {
-    // send a message after fething the heroes
+    // send a message after fetching the heroes
     return this.http.get<Hero[]>(this.heroesUrl)
         .pipe(
             tap(_ => this.log('fetched heroes')),
@@ -69,19 +69,19 @@ export class HeroService {
   }
 
   searchHeroes(term: string): Observable<Hero[]> {
-    if(!term.trim()) { return of([]); }
+    if (!term.trim()) { return of([]); }
 
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`)
         .pipe(
             tap(heroesFound => heroesFound.length ?
             this.log(`found heroes matching "${term}"`) :
             this.log(`not heroes matching "${term}"`)),
-            catchError(this.handleError<Hero[]>('searchHero',[]))
+            catchError(this.handleError<Hero[]>('searchHero', []))
         );
   }
 
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`)
+    this.messageService.add(`HeroService: ${message}`);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

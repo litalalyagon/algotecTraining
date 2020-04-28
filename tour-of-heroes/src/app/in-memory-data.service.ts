@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { InMemoryDbService } from "angular-in-memory-web-api";
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './hero';
 
 @Injectable({
@@ -8,18 +8,21 @@ import { Hero } from './hero';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    const avatarPlaceholder = 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg';
+
     const heroes = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 11, name: 'Dr Nice', avatar: 'https://image.shutterstock.com/image-photo/business-superhero-mixed-media-600w-721141036.jpg' },
+      { id: 12, name: 'Narco', avatar: 'https://image.shutterstock.com/image-vector/comic-style-cool-cartoon-book-600w-685973575.jpg' },
+      { id: 13, name: 'Bombasto', avatar: avatarPlaceholder },
+      { id: 14, name: 'Celeritas', avatar: avatarPlaceholder },
+      { id: 15, name: 'Magneta', avatar: avatarPlaceholder },
+      { id: 16, name: 'RubberMan', avatar: avatarPlaceholder },
+      { id: 17, name: 'Dynama', avatar: avatarPlaceholder },
+      { id: 18, name: 'Dr IQ', avatar: avatarPlaceholder },
+      { id: 19, name: 'Magma', avatar: avatarPlaceholder },
+      { id: 20, name: 'Tornado', avatar: avatarPlaceholder }
     ];
+
     return {heroes};
   }
 
