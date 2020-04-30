@@ -1,10 +1,18 @@
-<div mat-dialog-content>
+<div mat-dialog-content class="avatar-gallery">
 	<ul class="heroes">
-		<li *ngFor="let pic of avatarPics">
-			<img [mat-dialog-close]="pic.url" class="avatar-choice-image" mat-card-image src={{pic.url}}>
+		<li *ngFor="let pic of pageData">
+			<img [mat-dialog-close]="pic.url" class="avatar-choice-image" src="{{pic.url}}" alt="hero image">
 		</li>
 	</ul>
 </div>
+
+<mat-paginator [length]="dataLength"
+							 [pageSize]="pageSize"
+							 [pageIndex]="page"
+							 (page)="getPageData($event)">
+</mat-paginator>
+
+
 <div mat-dialog-actions>
 	<button (click)="clickCancel()">Cancel</button>
 	<button [mat-dialog-close]="avatarPlaceholder">Remove picture</button>

@@ -17,9 +17,14 @@ export interface DialogData {
 export class AvatarDialogComponent implements OnInit {
 
   @Input() avatarPics: Image[];
-
-  private jsonPath = 'api/images';
+  pageData: Image[];
+  jsonPath = 'api/images';
   avatarPlaceholder = 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg';
+
+  dataLength: number;
+  pageSize = 10;
+  // pageEvent: PageEvent;
+  page = 0;
 
   constructor(public dialogRef: MatDialogRef<AvatarDialogComponent>,
               private http: HttpClient,
@@ -31,8 +36,10 @@ export class AvatarDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.getJSON().subscribe(data => {
-      this.avatarPics = data;
       console.log(data);
+      this.avatarPics = data;
+      this.dataLength = data.length;
+      this.pageData = this.avatarPics.slice(this.page, this.pageSize);
     });
   }
 
@@ -40,4 +47,16 @@ export class AvatarDialogComponent implements OnInit {
       return this.http.get(this.jsonPath);
   }
 
+
+  getPageData(obj) {
+    console.log('get page data');
+    const startingIndex = obj.pageIndex * obj.pageSize;
+    const endingIndex = startingIndex + obj.pageSize;
+
+    this.pageData = this.avatarPics.slice(startingIndex, (endingIndex > this.dataLength ? this.dataLength : endingIndex));
+    console.log(obj.pageSize);
+  }
+
+
 }
+// heroes.slice(0, 4)

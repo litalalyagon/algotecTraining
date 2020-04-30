@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Hero } from './hero';
-// import { HEROES } from './mock-heroes-unused';
 import { MessageService } from './message.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HeroService {
 
   private heroesUrl = 'api/heroes';
+  avatarPlaceholder = 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -50,6 +51,7 @@ export class HeroService {
   }
 
   addHero(hero: Hero): Observable<Hero> {
+    hero.avatar = this.avatarPlaceholder;
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions)
         .pipe(
             tap((newHero: Hero) => this.log(`added hero id=${newHero.id}`)),

@@ -8,21 +8,20 @@ import { images } from '../assets/hero-images.mock';
   providedIn: 'root'
 })
 export class InMemoryDataService implements InMemoryDbService {
+  avatarPlaceholder = 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg';
+
   createDb() {
-
-    const avatarPlaceholder = 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg';
-
     const heroes = [
-      { id: 11, name: 'Dr Nice', avatar: avatarPlaceholder },
-      { id: 12, name: 'Narco', avatar: avatarPlaceholder },
-      { id: 13, name: 'Bombasto', avatar: avatarPlaceholder },
-      { id: 14, name: 'Celeritas', avatar: avatarPlaceholder },
-      { id: 15, name: 'Magneta', avatar: avatarPlaceholder },
-      { id: 16, name: 'RubberMan', avatar: avatarPlaceholder },
-      { id: 17, name: 'Dynama', avatar: avatarPlaceholder },
-      { id: 18, name: 'Dr IQ', avatar: avatarPlaceholder },
-      { id: 19, name: 'Magma', avatar: avatarPlaceholder },
-      { id: 20, name: 'Tornado', avatar: avatarPlaceholder }
+      { id: 11, name: 'Dr Nice', avatar: this.avatarPlaceholder },
+      { id: 12, name: 'Narco', avatar: this.avatarPlaceholder },
+      { id: 13, name: 'Bombasto', avatar: this.avatarPlaceholder },
+      { id: 14, name: 'Celeritas', avatar: this.avatarPlaceholder },
+      { id: 15, name: 'Magneta', avatar: this.avatarPlaceholder },
+      { id: 16, name: 'RubberMan', avatar: this.avatarPlaceholder },
+      { id: 17, name: 'Dynama', avatar: this.avatarPlaceholder },
+      { id: 18, name: 'Dr IQ', avatar: this.avatarPlaceholder },
+      { id: 19, name: 'Magma', avatar: this.avatarPlaceholder },
+      { id: 20, name: 'Tornado', avatar: this.avatarPlaceholder }
     ];
 
     return {

@@ -43,7 +43,7 @@ export class HeroDetailComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AvatarDialogComponent, {
-      width: '500px', height: '300px',
+      width: '400px', height: '300px',
       data: {picUrl: this.hero.avatar}
     });
 

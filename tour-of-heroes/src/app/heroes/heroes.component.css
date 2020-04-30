@@ -19,11 +19,11 @@ mat-card {
 
 .mat-card-image {
 	width: 100%;
-	max-height: 100%;
-	/*min-width: 100%;*/
+	max-height: 250px;
 	object-fit: cover;
 	vertical-align: bottom;
 	margin: 0;
+	cursor: pointer;
 }
 mat-card-header {
 	margin: 0;
@@ -44,7 +44,7 @@ mat-card-header {
 	line-height: 1em;
 	position: relative;
 	left: -5px;
-	top: 0px;
+	top: 0;
 	height: 1.8em;
 	margin-right: .8em;
 	border-radius: 4px 4px 4px 4px;

@@ -18,7 +18,7 @@
 						<button class="delete" title="delete hero" (click)="delete(hero)">X</button>
 					</mat-card-title>
 				</mat-card-header>
-				<img mat-card-image src="{{hero.avatar}}" alt="Avatar photo">
+				<img routerLink="/detail/{{hero.id}}" mat-card-image src="{{hero.avatar}}" alt="Avatar photo">
 
 			</mat-card>
 
